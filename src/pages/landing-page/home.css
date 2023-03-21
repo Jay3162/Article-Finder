@@ -1,0 +1,36 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    flex-direction: column;
+}
+
+.search-bar {
+    width: 50vw;
+    height: 10vh;
+    border-radius: 50px;
+    border-style: none;
+    font-size: 2vw;
+}
+
+.search-bar:hover {
+    outline: none;
+    border-style: none;
+}
+
+.search-btn {
+    background-color: transparent;
+    outline: none;
+    border-style: none;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+}
