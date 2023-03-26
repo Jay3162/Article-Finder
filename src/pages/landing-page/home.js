@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from '../landing-page/home.css';
 import { FaSearch } from 'react-icons/fa'
 export default function Home () {
-    const [clicked, setClicked] = useState(false);
+    // const [clicked, setClicked] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [articleData, setArticleData] = useState([]);
     const [articleInfo, setArticleInfo] = useState("");
@@ -12,18 +12,10 @@ export default function Home () {
     const appKey = process.env.REACT_APP_API_KEY;
     const conKey = process.env.REACT_APP_CONSUMER_KEY;
 
-    // const toggleSearch = (e) => {
-    //     e.preventDefault();
-    //     setClicked(!clicked);
-    // }
-
     // ensure api calls are made when search query is completed
     const StartSearch = (e) => {
         e.preventDefault();
-        if (clicked) {
-            getArt(searchQuery);
-        }
-        setClicked(!clicked);
+        getArt(searchQuery);
     }
 
     const getArt = (query) => {
@@ -52,7 +44,6 @@ export default function Home () {
                 .then(response => response.text())
                 .then(result => {
                     token = JSON.parse(result);
-                    console.log(token)
                     var newHeaders = new Headers();
                     newHeaders.append("APPLICATIONKEY", appKey);
                     newHeaders.append("CONSUMERKEY", conKey);
