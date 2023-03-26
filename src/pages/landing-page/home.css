@@ -5,18 +5,25 @@ body {
 
 .container {
     display: flex;
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-items: center;
     background-color: rgb(20, 20, 20);
+    /* background-color: #fff; */
     flex-direction: column;
 }
 
+/* search bar styles */
+
+li {
+    list-style: none;
+}
+
 .search-bar {
-    width: 50vw;
-    height: 10vh;
+    width: 50vw;    
+    height: 8vh;
     border-radius: 50px;
-    border-style: none;
+    border: 2px solid black;
     font-size: 2vw;
 }
 
@@ -33,4 +40,28 @@ body {
 
 .search-btn:hover {
     cursor: pointer;
+}
+
+/* article styles */
+
+.article-wrapper {
+    display: flex;
+}
+
+.article-title {
+    font-size: 3vw;
+}
+
+.article {
+    width: 50vw;
+}
+
+.article-main {
+    width: 50vw;
+}
+
+
+.article-main iframe, .article-main video {
+    width: 50vw;
+    border-radius: 5px; 
 }
