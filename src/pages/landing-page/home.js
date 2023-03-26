@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import style from '../landing-page/home.css';
 import { FaSearch } from 'react-icons/fa'
 export default function Home () {
@@ -6,15 +6,16 @@ export default function Home () {
     const [searchQuery, setSearchQuery] = useState("");
     const [articleData, setArticleData] = useState([]);
     const [articleInfo, setArticleInfo] = useState("");
-    const newestArticle = useRef(null);
 
+
+    // ensure that keys are not pushed up to github
     const appKey = process.env.REACT_APP_API_KEY;
     const conKey = process.env.REACT_APP_CONSUMER_KEY;
 
-    const toggleSearch = (e) => {
-        e.preventDefault();
-        setClicked(!clicked);
-    }
+    // const toggleSearch = (e) => {
+    //     e.preventDefault();
+    //     setClicked(!clicked);
+    // }
 
     // ensure api calls are made when search query is completed
     const StartSearch = (e) => {
@@ -135,13 +136,11 @@ export default function Home () {
         }
     }
 
-    useEffect(() => {
-        // for (let i = 0; i < articleData.length; i++) {
-            if (articleData) {
-                console.log(articleData);
-            }
-        // }
-    }, [articleData])
+    // useEffect(() => {
+    //     if (articleData) {
+    //         console.log(articleData);
+    //     }
+    // }, [articleData])
 
 
     return (
@@ -179,7 +178,6 @@ export default function Home () {
                             ></div>
                             {article.url === null ? 
                             <div> 
-                                
                             </div> : 
                             <div>
                                 <a href={article.url}>Go To Article</a> 
