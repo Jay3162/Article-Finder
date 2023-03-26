@@ -19,11 +19,11 @@ export default function Home () {
     // ensure api calls are made when search query is completed
     const StartSearch = (e) => {
         e.preventDefault();
-        getArt(searchQuery);
+        if (clicked) {
+            getArt(searchQuery);
+        }
         setClicked(!clicked);
     }
-
-    
 
     const getArt = (query) => {
         var token;
@@ -173,10 +173,17 @@ export default function Home () {
                                 className="article-title" 
                                 data-testid="result">{article.question}
                             </h2>
+                            <div className="article-break"></div>
                             <div 
-                            className="article-main"dangerouslySetInnerHTML={{ __html: article.answer }}
+                            className="article-main" dangerouslySetInnerHTML={{ __html: article.answer }}
                             ></div>
-                            {article.url !== undefined || article.url !== null ? <div> <a href={article.url}>Go To Article</a> </div> : <div></div>}
+                            {article.url === null ? 
+                            <div> 
+                                
+                            </div> : 
+                            <div>
+                                <a href={article.url}>Go To Article</a> 
+                            </div>}
                         </li>)
                     })}
                     </ul>
